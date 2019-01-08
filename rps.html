@@ -10,19 +10,39 @@
             
             function computerPlay() {
 
-                const computerChoice = Math.floor(Math.random() * 3);
+                let computerChoice = Math.floor(Math.random() * 3);
                 
                 if (computerChoice === 0) {
-                    return 'Rock'
-                }
+                    computerChoice = 'Rock'
+                    }
                 else if (computerChoice === 1) {
-                    return 'Paper'
+                    computerChoice = 'Paper'
+                    }
+                else {
+                    computerChoice = 'Scissors'
+                    }
+                return computerChoice;
+                };
+
+            function singleRound (playerSelection, computerSelection) {
+
+                if (playerSelection === computerSelection) {
+                    return 'EMPATE! P1 escolheu: ' + playerSelection + ' e CPU escolheu: '+ computerSelection
+                }
+                else if ((playerSelection === 'Rock' && computerSelection === 'Scissors') || 
+                         (playerSelection === 'Paper' && computerSelection === 'Rock') ||
+                         (playerSelection === 'Scissors' && computerSelection === 'Paper'))
+                {
+                    return 'JOGADOR 1 GANHOU! P1: ' + playerSelection + ' vs CPU: '+ computerSelection
                 }
                 else {
-                    return 'Scissors'
+                    return 'O COMPUTADOR GANHOU! P1 ' + playerSelection + ' vs CPU: '+ computerSelection
                 }
-                }
-            
+
+            }
+            const playerSelection = 'Rock'
+            const computerSelection = computerPlay();
+
             </script>
         </body>
 </html>
