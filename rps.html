@@ -13,13 +13,13 @@
                 let computerChoice = Math.floor(Math.random() * 3);
                 
                 if (computerChoice === 0) {
-                    computerChoice = 'Rock'
+                    computerChoice = 'ROCK'
                     }
                 else if (computerChoice === 1) {
-                    computerChoice = 'Paper'
+                    computerChoice = 'PAPER'
                     }
                 else {
-                    computerChoice = 'Scissors'
+                    computerChoice = 'SCISSORS'
                     }
                 return computerChoice;
                 };
@@ -29,9 +29,9 @@
                 if (playerSelection === computerSelection) {
                     return 'EMPATE! P1 escolheu: ' + playerSelection + ' e CPU escolheu: '+ computerSelection
                 }
-                else if ((playerSelection === 'Rock' && computerSelection === 'Scissors') || 
-                         (playerSelection === 'Paper' && computerSelection === 'Rock') ||
-                         (playerSelection === 'Scissors' && computerSelection === 'Paper'))
+                else if ((playerSelection === 'ROCK' && computerSelection === 'SCISSORS') || 
+                         (playerSelection === 'PAPER' && computerSelection === 'ROCK') ||
+                         (playerSelection === 'SCISSORS' && computerSelection === 'PAPER'))
                 {
                     return 'JOGADOR 1 GANHOU! P1: ' + playerSelection + ' vs CPU: '+ computerSelection
                 }
@@ -40,7 +40,7 @@
                 }
 
             }
-            const playerSelection = 'Rock'
+            const playerSelection = prompt('Rock, Paper or Scissors?').toUpperCase();
             const computerSelection = computerPlay();
 
             </script>
