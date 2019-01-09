@@ -24,36 +24,72 @@
                 return computerChoice;
                 };
 
-            function singleRound(playerSelection, computerSelection) {
+            function singleRound() {
+                let playerSelection = prompt('Rock, Paper or Scissors?').toUpperCase();
+                let computerSelection = computerPlay();
 
                 if (playerSelection === computerSelection) {
-                    return 'EMPATE! P1 escolheu: ' + playerSelection + ' e CPU escolheu: '+ computerSelection;
+                    vencedor = 'empate'
+                    console.log('EMPATE: ' + playerSelection + ' vs ' + computerSelection);
+                    return vencedor;
                 }
                 else if ((playerSelection === 'ROCK' && computerSelection === 'SCISSORS') || 
                          (playerSelection === 'PAPER' && computerSelection === 'ROCK') ||
                          (playerSelection === 'SCISSORS' && computerSelection === 'PAPER'))
                 {
-                    return 'JOGADOR 1 GANHOU! P1: ' + playerSelection + ' vs CPU: '+ computerSelection;
+                    vencedor = 'P1'
+                    console.log('P1 GANHOU: ' + playerSelection + ' vs ' + computerSelection);
+                    return vencedor;
                     
                 }
                 else {
-                    return 'O COMPUTADOR GANHOU! P1 ' + playerSelection + ' vs CPU: '+ computerSelection;
-                    
+                    vencedor = 'CPU'
+                    console.log('CPU GANHOU: ' + playerSelection + ' vs ' + computerSelection);
+                    return vencedor;
                 }
 
             }
-            //const playerSelection = prompt('Rock, Paper or Scissors?').toUpperCase();
-            //const computerSelection = computerPlay();
-
-            function game() {
-            let playerSelection = prompt('Rock, Paper or Scissors?').toUpperCase();
-            let computerSelection = computerPlay();
-
-                singleRound(playerSelection, computerSelection);
-                console.log(singleRound(playerSelection, computerSelection))
-            }
+            let vencedor;
             let P1score = 0;
             let CPUscore = 0;
+            function scoreBoard() {
+                
+                if (vencedor === 'P1') {
+                    P1score++
+                    console.log('Pontuação P1 = ' + P1score)
+                    console.log('Pontuação CPU = ' + CPUscore)
+                }
+                else if (vencedor === 'CPU') {
+                    CPUscore++
+                    console.log('Pontuação P1 = ' + P1score)
+                    console.log('Pontuação CPU = ' + CPUscore)
+                }
+                else {
+                    console.log('Pontuação P1 = ' + P1score)
+                    console.log('Pontuação CPU = ' + CPUscore)
+                }
+            }
+            function game() {
+                singleRound();
+                scoreBoard();
+                singleRound();
+                scoreBoard();
+                singleRound();
+                scoreBoard();
+                singleRound();
+                scoreBoard();
+                singleRound();
+                scoreBoard();
+                if (P1score > CPUscore) {
+                    return 'P1 ganhou com um total de '+P1score+ ' pontos!!'
+                }
+                else if (P1score < CPUscore) {
+                    return 'CPU ganhou com um total de '+CPUscore+ ' pontos!!'
+                }
+                else {
+                    return 'WE GOT SOME JANKEN PIMPS OVER HERE YALL'
+                }
+            }
 
             </script>
         </body>
