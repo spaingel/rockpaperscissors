@@ -24,24 +24,36 @@
                 return computerChoice;
                 };
 
-            function singleRound (playerSelection, computerSelection) {
+            function singleRound(playerSelection, computerSelection) {
 
                 if (playerSelection === computerSelection) {
-                    return 'EMPATE! P1 escolheu: ' + playerSelection + ' e CPU escolheu: '+ computerSelection
+                    return 'EMPATE! P1 escolheu: ' + playerSelection + ' e CPU escolheu: '+ computerSelection;
                 }
                 else if ((playerSelection === 'ROCK' && computerSelection === 'SCISSORS') || 
                          (playerSelection === 'PAPER' && computerSelection === 'ROCK') ||
                          (playerSelection === 'SCISSORS' && computerSelection === 'PAPER'))
                 {
-                    return 'JOGADOR 1 GANHOU! P1: ' + playerSelection + ' vs CPU: '+ computerSelection
+                    return 'JOGADOR 1 GANHOU! P1: ' + playerSelection + ' vs CPU: '+ computerSelection;
+                    
                 }
                 else {
-                    return 'O COMPUTADOR GANHOU! P1 ' + playerSelection + ' vs CPU: '+ computerSelection
+                    return 'O COMPUTADOR GANHOU! P1 ' + playerSelection + ' vs CPU: '+ computerSelection;
+                    
                 }
 
             }
-            const playerSelection = prompt('Rock, Paper or Scissors?').toUpperCase();
-            const computerSelection = computerPlay();
+            //const playerSelection = prompt('Rock, Paper or Scissors?').toUpperCase();
+            //const computerSelection = computerPlay();
+
+            function game() {
+            let playerSelection = prompt('Rock, Paper or Scissors?').toUpperCase();
+            let computerSelection = computerPlay();
+
+                singleRound(playerSelection, computerSelection);
+                console.log(singleRound(playerSelection, computerSelection))
+            }
+            let P1score = 0;
+            let CPUscore = 0;
 
             </script>
         </body>
