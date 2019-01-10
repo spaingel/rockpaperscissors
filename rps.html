@@ -7,23 +7,24 @@
     </head>
         <body>
             <script>
+
+            //GERAR RANDOM A ESCOLHA DO CPU
+            function computerPlay() { 
+            let computerChoice = Math.floor(Math.random() * 3);
             
-            function computerPlay() {
+            if (computerChoice === 0) {
+                computerChoice = 'ROCK'
+                }
+            else if (computerChoice === 1) {
+                     computerChoice = 'PAPER'
+                }
+            else {
+                computerChoice = 'SCISSORS'
+                }
+            return computerChoice;
+            };
 
-                let computerChoice = Math.floor(Math.random() * 3);
-                
-                if (computerChoice === 0) {
-                    computerChoice = 'ROCK'
-                    }
-                else if (computerChoice === 1) {
-                    computerChoice = 'PAPER'
-                    }
-                else {
-                    computerChoice = 'SCISSORS'
-                    }
-                return computerChoice;
-                };
-
+            //ALTERAR ESTA FUNÇÃO PARA switch STATEMENT
             function singleRound() {
                 let playerSelection = prompt('Rock, Paper or Scissors?').toUpperCase();
                 let computerSelection = computerPlay();
@@ -39,21 +40,21 @@
                 {
                     vencedor = 'P1'
                     console.log('P1 GANHOU: ' + playerSelection + ' vs ' + computerSelection);
-                    return vencedor;
-                    
+                    return vencedor;   
                 }
                 else {
                     vencedor = 'CPU'
                     console.log('CPU GANHOU: ' + playerSelection + ' vs ' + computerSelection);
                     return vencedor;
                 }
-
             }
+
             let vencedor;
             let P1score = 0;
             let CPUscore = 0;
+
+            //Incremento de pontuação e relatório dos resultados
             function scoreBoard() {
-                
                 if (vencedor === 'P1') {
                     P1score++
                     console.log('Pontuação P1 = ' + P1score)
@@ -69,6 +70,8 @@
                     console.log('Pontuação CPU = ' + CPUscore)
                 }
             }
+
+            //EXECUTAR O JOGO
             function game() {
                 singleRound();
                 scoreBoard();
@@ -80,6 +83,8 @@
                 scoreBoard();
                 singleRound();
                 scoreBoard();
+
+                //DIVULGAÇÃO DO VENCEDOR
                 if (P1score > CPUscore) {
                     return 'P1 ganhou com um total de '+P1score+ ' pontos!!'
                 }
