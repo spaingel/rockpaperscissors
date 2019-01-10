@@ -8,7 +8,7 @@
         <body>
             <script>
 
-            //GERAR RANDOM A ESCOLHA DO CPU
+            //GERAR A ESCOLHA DO CPU
             function computerPlay() { 
             let computerChoice = Math.floor(Math.random() * 3);
             
@@ -24,28 +24,37 @@
             return computerChoice;
             };
 
-            //ALTERAR ESTA FUNÇÃO PARA switch STATEMENT
+            //INPUT DE JOGADOR 1 E COMPARAR A INPUT DE CPU
             function singleRound() {
                 let playerSelection = prompt('Rock, Paper or Scissors?').toUpperCase();
                 let computerSelection = computerPlay();
 
-                if (playerSelection === computerSelection) {
-                    vencedor = 'empate'
-                    console.log('EMPATE: ' + playerSelection + ' vs ' + computerSelection);
-                    return vencedor;
-                }
-                else if ((playerSelection === 'ROCK' && computerSelection === 'SCISSORS') || 
-                         (playerSelection === 'PAPER' && computerSelection === 'ROCK') ||
-                         (playerSelection === 'SCISSORS' && computerSelection === 'PAPER'))
+                if ((playerSelection === 'ROCK' && computerSelection === 'SCISSORS') || 
+                    (playerSelection === 'PAPER' && computerSelection === 'ROCK') ||
+                    (playerSelection === 'SCISSORS' && computerSelection === 'PAPER'))
                 {
                     vencedor = 'P1'
                     console.log('P1 GANHOU: ' + playerSelection + ' vs ' + computerSelection);
                     return vencedor;   
                 }
-                else {
+
+                else if ((computerSelection === 'ROCK' && playerSelection === 'SCISSORS') || 
+                         (computerSelection === 'PAPER' && playerSelection === 'ROCK') ||
+                         (computerSelection === 'SCISSORS' && playerSelection === 'PAPER'))
+                {
                     vencedor = 'CPU'
                     console.log('CPU GANHOU: ' + playerSelection + ' vs ' + computerSelection);
+                    return vencedor;   
+                }
+
+                else if (playerSelection === computerSelection) {
+                    vencedor = 'empate'
+                    console.log('EMPATE: ' + playerSelection + ' vs ' + computerSelection);
                     return vencedor;
+                }
+                else {
+                    console.log('PLEASE INPUT A VALID MOVE')
+                    singleRound();
                 }
             }
 
