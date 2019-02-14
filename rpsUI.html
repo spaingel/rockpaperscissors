@@ -9,7 +9,12 @@
 
             <button id="btnrock">Rock</button>
             <button id="btnpaper">Paper</button>
-            <button id="btnscissors">Scissors</button>
+            <button id="btnscissors">Scissors</button><br><br>
+            <div class="scores">
+                P1: <p id="p1">0</p>
+                
+                CPU: <p id="cpu">0</p>
+            </div>
 
             <script>
             
@@ -17,6 +22,10 @@
             const roundResult = document.createElement('div');
             roundResult.setAttribute('id', 'roundresult');
             display.appendChild(roundResult);
+
+            const p1Wins = document.querySelector('#p1')
+            const cpuWins = document.querySelector('#cpu')
+
             //GERAR A ESCOLHA DO CPU
             function computerPlay() { 
             let computerChoice = Math.floor(Math.random() * 3);
@@ -42,6 +51,8 @@
                 {
                     vencedor = 'P1'
                     roundResult.textContent = ('P1 GANHOU: ' + playerSelection + ' vs ' + computerSelection);
+                    P1score++
+                    p1Wins.textContent = P1score;
                     return vencedor;   
                 }
 
@@ -51,6 +62,8 @@
                 {
                     vencedor = 'CPU'
                     roundResult.textContent = ('CPU GANHOU: ' + playerSelection + ' vs ' + computerSelection);
+                    CPUscore++
+                    cpuWins.textContent = CPUscore;
                     return vencedor;   
                 }
 
@@ -95,7 +108,7 @@
            
 
             //Incremento de pontuação e relatório dos resultados
-            function scoreBoard() {
+            /*function scoreBoard() {
                 if (vencedor === 'P1') {
                     P1score++
                     console.log('Pontuação P1 = ' + P1score)
@@ -110,7 +123,7 @@
                     console.log('Pontuação P1 = ' + P1score)
                     console.log('Pontuação CPU = ' + CPUscore)
                 }
-            }
+            }*/
 
             //EXECUTAR O JOGO
            /* function game() {
