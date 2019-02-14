@@ -53,6 +53,7 @@
                     roundResult.textContent = ('P1 GANHOU: ' + playerSelection + ' vs ' + computerSelection);
                     P1score++
                     p1Wins.textContent = P1score;
+                    theWinnerIs();
                     return vencedor;   
                 }
 
@@ -64,6 +65,7 @@
                     roundResult.textContent = ('CPU GANHOU: ' + playerSelection + ' vs ' + computerSelection);
                     CPUscore++
                     cpuWins.textContent = CPUscore;
+                    theWinnerIs();
                     return vencedor;   
                 }
 
@@ -73,9 +75,10 @@
                     return vencedor;
                 }
                 else {
-                    console.log('PLEASE INPUT A VALID MOVE')
-                    singleRound();
+                    alert('ERROR')
+                    
                 }
+                
             }
 
             
@@ -149,6 +152,19 @@
                     return 'WE GOT SOME JANKEN PIMPS OVER HERE YALL'
                 }
             */
+
+            //DIVULGAÇÃO DO VENCEDOR 2
+               
+               function theWinnerIs() {
+
+                if (P1score === 5) {
+                    alert('P1 ganhou com um total de '+P1score+ ' pontos!!')
+                }
+                if (CPUscore === 5) {
+                    alert('CPU ganhou com um total de '+CPUscore+ ' pontos!!')
+                }
+                
+            }
 
             </script>
         </body>
