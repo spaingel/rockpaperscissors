@@ -1,0 +1,136 @@
+<!DOCTYPE html></DOCTYPE>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Let's play JANKEN!</title>
+
+    </head>
+        <body>
+
+            <button id="btnrock">Rock</button>
+            <button id="btnpaper">Paper</button>
+            <button id="btnscissors">Scissors</button>
+
+            <script>
+
+            //GERAR A ESCOLHA DO CPU
+            function computerPlay() { 
+            let computerChoice = Math.floor(Math.random() * 3);
+            
+            if (computerChoice === 0) {
+                computerChoice = 'ROCK'
+                }
+            else if (computerChoice === 1) {
+                     computerChoice = 'PAPER'
+                }
+            else {
+                computerChoice = 'SCISSORS'
+                }
+            return computerChoice;
+            };
+
+            //INPUT DE JOGADOR 1 E COMPARAR A INPUT DE CPU
+            function singleRound() {
+
+                if ((playerSelection === 'ROCK' && computerSelection === 'SCISSORS') || 
+                    (playerSelection === 'PAPER' && computerSelection === 'ROCK') ||
+                    (playerSelection === 'SCISSORS' && computerSelection === 'PAPER'))
+                {
+                    vencedor = 'P1'
+                    console.log('P1 GANHOU: ' + playerSelection + ' vs ' + computerSelection);
+                    return vencedor;   
+                }
+
+                else if ((computerSelection === 'ROCK' && playerSelection === 'SCISSORS') || 
+                         (computerSelection === 'PAPER' && playerSelection === 'ROCK') ||
+                         (computerSelection === 'SCISSORS' && playerSelection === 'PAPER'))
+                {
+                    vencedor = 'CPU'
+                    console.log('CPU GANHOU: ' + playerSelection + ' vs ' + computerSelection);
+                    return vencedor;   
+                }
+
+                else if (playerSelection === computerSelection) {
+                    vencedor = 'empate'
+                    console.log('EMPATE: ' + playerSelection + ' vs ' + computerSelection);
+                    return vencedor;
+                }
+                else {
+                    console.log('PLEASE INPUT A VALID MOVE')
+                    singleRound();
+                }
+            }
+
+            let playerSelection
+            let computerSelection
+            let vencedor;
+            let P1score = 0;
+            let CPUscore = 0;
+
+            let btnrock = document.querySelector('#btnrock');
+                btnrock.addEventListener('click', () => {
+                        playerSelection = 'ROCK';
+                        computerSelection = computerPlay();
+                        singleRound();
+                    });
+            let btnpaper = document.querySelector('#btnpaper');
+                btnpaper.addEventListener('click', () => {
+                        playerSelection = 'PAPER'
+                        computerSelection = computerPlay();
+                        singleRound();
+                    });
+            let btnscissors = document.querySelector('#btnscissors');
+                btnscissors.addEventListener('click', () => {
+                        playerSelection = 'SCISSORS'
+                        computerSelection = computerPlay();
+                        singleRound();
+                    });
+
+           
+
+            //Incremento de pontuação e relatório dos resultados
+            function scoreBoard() {
+                if (vencedor === 'P1') {
+                    P1score++
+                    console.log('Pontuação P1 = ' + P1score)
+                    console.log('Pontuação CPU = ' + CPUscore)
+                }
+                else if (vencedor === 'CPU') {
+                    CPUscore++
+                    console.log('Pontuação P1 = ' + P1score)
+                    console.log('Pontuação CPU = ' + CPUscore)
+                }
+                else {
+                    console.log('Pontuação P1 = ' + P1score)
+                    console.log('Pontuação CPU = ' + CPUscore)
+                }
+            }
+
+            //EXECUTAR O JOGO
+           /* function game() {
+                singleRound();
+                scoreBoard();
+                singleRound();
+                scoreBoard();
+                singleRound();
+                scoreBoard();
+                singleRound();
+                scoreBoard();
+                singleRound();
+                scoreBoard();*/
+
+                //DIVULGAÇÃO DO VENCEDOR
+               /* if (P1score > CPUscore) {
+                    return 'P1 ganhou com um total de '+P1score+ ' pontos!!'
+                }
+                else if (P1score < CPUscore) {
+                    return 'CPU ganhou com um total de '+CPUscore+ ' pontos!!'
+                }
+                else {
+                    return 'WE GOT SOME JANKEN PIMPS OVER HERE YALL'
+                }
+            */
+
+            </script>
+        </body>
+</html>
