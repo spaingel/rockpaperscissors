@@ -12,7 +12,11 @@
             <button id="btnscissors">Scissors</button>
 
             <script>
-
+            
+            const display = document.querySelector('body');
+            const roundResult = document.createElement('div');
+            roundResult.setAttribute('id', 'roundresult');
+            display.appendChild(roundResult);
             //GERAR A ESCOLHA DO CPU
             function computerPlay() { 
             let computerChoice = Math.floor(Math.random() * 3);
@@ -37,7 +41,7 @@
                     (playerSelection === 'SCISSORS' && computerSelection === 'PAPER'))
                 {
                     vencedor = 'P1'
-                    console.log('P1 GANHOU: ' + playerSelection + ' vs ' + computerSelection);
+                    roundResult.textContent = ('P1 GANHOU: ' + playerSelection + ' vs ' + computerSelection);
                     return vencedor;   
                 }
 
@@ -46,13 +50,13 @@
                          (computerSelection === 'SCISSORS' && playerSelection === 'PAPER'))
                 {
                     vencedor = 'CPU'
-                    console.log('CPU GANHOU: ' + playerSelection + ' vs ' + computerSelection);
+                    roundResult.textContent = ('CPU GANHOU: ' + playerSelection + ' vs ' + computerSelection);
                     return vencedor;   
                 }
 
                 else if (playerSelection === computerSelection) {
                     vencedor = 'empate'
-                    console.log('EMPATE: ' + playerSelection + ' vs ' + computerSelection);
+                    roundResult.textContent = ('EMPATE: ' + playerSelection + ' vs ' + computerSelection);
                     return vencedor;
                 }
                 else {
@@ -60,6 +64,8 @@
                     singleRound();
                 }
             }
+
+            
 
             let playerSelection
             let computerSelection
